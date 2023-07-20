@@ -60,24 +60,24 @@ The general strategy for adding a new feature:
 
 You will be using Git to track your changes during software training, and to help you familiarize yourself with it for the future.
 
-1. Open up VS Code or your editor of choice with Git integrations
+#### 1. Open up VS Code or your editor of choice with Git integrations
 
-2. Open up `rj_training_container/training_ws/src`
+#### 2. Open up `rj_training_container/training_ws/src`
 
-3. Make sure you have the newest branch data with `git fetch`
+#### 3. Make sure you have the newest branch data with `git fetch`
 
-4. List all current branches with `git branch` in terminal
+#### 4. List all current branches with `git branch` in terminal
 
-5. Make a branch called `git branch <student>-<first_name>-<last_name>`
+#### 5. Make a branch called `git branch <student>-<first_name>-<last_name>`
 
-6. Check that branch out with `git checkout <student>-<first_name>-<last_name>`
+#### 6. Check that branch out with `git checkout <student>-<first_name>-<last_name>`
 
 Any changes you now make will only be contained in your specific branch!
 
-7. Changes can be committed by going to source control in VS Code, clicking + on anything you want to add, then writing a commit message
+#### 7. Changes can be committed by going to source control in VS Code, clicking + on anything you want to add, then writing a commit message
 
 ![Commit Example](../../documents/pictures/commit_example.png)
 
-8. Fetch and push changes by clicking on the refresh icon in the bottom left
+#### 8. Fetch and push changes by clicking on the refresh icon in the bottom left
 
 ![Refresh Icon](../../documents/pictures/push_pull_refresh.png)
