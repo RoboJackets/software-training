@@ -75,33 +75,32 @@ Flags like `-a` can enhance certain commands. Now `ls` outputs hidden files (all
 
 `clear` wipes your screen and is useful for avoiding a cluttered terminal
 
-#### 11. Navigate to directory containing a file and enter `cat <FILENAME>`
+#### 11. Try to install terminator (a bash shell you are likely using) with `apt-get install terminator`. **This will fail since you are not root!**
+
+#### 12. Give yourself greater permissions by entering `sudo apt-get install terminator` instead
+
+- apt, apt-get, and snap are all package managers on Ubuntu
+- You use them to easily manage software installations
+
+#### 13. Navigate to directory containing a file and enter `cat <FILENAME>`
 
 `cat` outputs the contents of a file to your screen
 
-#### 12. Create a new text file with `touch test.txt`
+#### 14. Create a new text file with `touch test.txt`
 
-#### 13. Run `echo 'Testing' > test.txt`. Verify the new text is present
+#### 15. Run `echo 'Testing' > test.txt`. Verify the new text is present
 
 `echo` is used to output text or a variable to terminal, in this case `Testing`
 
 `>` is used to pipe the output of that echo command to `test.txt`. Piping is an advanced Linux concept, but essentially
 boils down to sending the output of one command to another command in a direct chain
 
-#### 14. Run `rm test.txt`. Verify it has been deleted
+#### 16. Run `rm test.txt`. Verify it has been deleted
 
-#### 15. Run `echo $PATH`
+#### 17. Run `echo $PATH`
 
 `$` is always appended to variables in bash
 
 `$PATH` is another advanced Linux concept. Linux checks certain places when you run programs. By adding things to the `$PATH`, you gurantee that Linux
 will also check those places for programs. This is how ROS2 is able to function when you install external libraries, as it simply has them in a 
 path-accessible location (`/opt/ros/<version-name>/bin`)
-
-#### 16. Try to install terminator (a bash shell you are likely using) with `apt-get install terminator`. **This will fail since you are not root!**
-
-#### 17. Give yourself greater permissions by entering `sudo apt-get install terminator` instead
-
-- apt, apt-get, and snap are all package managers on Ubuntu
-- You use them to easily manage software installations
-
