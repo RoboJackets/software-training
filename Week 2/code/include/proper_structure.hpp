@@ -9,10 +9,10 @@ namespace proper_structure
 class ProperStructure
 {
 public:
-    ProperStructure(int something);
-    std::vector<int> makeVectorOfSomething(int length);
+    ProperStructure(int num1, int num2);
 private:
-    int something;
+    int num1;
+    int num2;
 };
 
 }

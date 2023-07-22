@@ -18,10 +18,6 @@ public:
         return numLegs;
     }
 
-    int getNumberOfAntlers() {
-        return numAntlers;
-    }
-
 private:
     int numLegs;
     int numAntlers;

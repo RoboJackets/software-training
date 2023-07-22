@@ -3,22 +3,12 @@
 
 namespace proper_structure
 {
-    ProperStructure::ProperStructure(int something) {
-        this->something = something;
+    ProperStructure::ProperStructure(int num1, int num2) {
+        this->num1 = num1;
+        this->num2 = num2;
     }
-
-    std::vector<int> ProperStructure::makeVectorOfSomething(int length) {
-        return std::vector<int>(something, length);
-    }
-
 }
 
 int main(int argc, char *argv[]) {
-    auto proper = proper_structure::ProperStructure(5);
-    std::vector<int> arr = proper.makeVectorOfSomething(5);
-
-    for (auto x : arr) {
-        std::cout << x << ' ';
-    }
-    std::cout << '\n';
+    auto proper = proper_structure::ProperStructure(5, 5);
 }
