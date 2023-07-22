@@ -101,6 +101,6 @@ boils down to sending the output of one command to another command in a direct c
 
 `$` is always appended to variables in bash
 
-`$PATH` is another advanced Linux concept. Linux checks certain places when you run programs. By adding things to the `$PATH`, you gurantee that Linux
+`$PATH` is another advanced Linux concept. Linux checks certain places when you run programs. By adding things to the `$PATH`, you guarantee that Linux
 will also check those places for programs. This is how ROS2 is able to function when you install external libraries, as it simply has them in a 
 path-accessible location (`/opt/ros/<version-name>/bin`)
