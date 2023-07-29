@@ -9,10 +9,11 @@ namespace proper_structure
 class ProperStructure
 {
 public:
-    ProperStructure(int num1, int num2);
+  ProperStructure(int num1, int num2);
+
 private:
-    int num1;
-    int num2;
+  int num1;
+  int num2;
 };
 
 }

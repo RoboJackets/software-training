@@ -1,0 +1,90 @@
+name: CI
+on:
+  pull_request:
+    branches: [ master ]
+    types: [ closed ]
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-22.04
+    container: robojackets/urc-baseimage:humble
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          path: colcon_ws/src/urc-software
+          
+      - name: Update Dependencies
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          sudo apt-get update
+          sudo apt-get --with-new-pkgs upgrade -y
+
+      - name: Build
+        shell: bash
+        working-directory: colcon_ws
+        run: |
+          source /opt/ros/humble/setup.bash
+          rosdep update
+          rosdep install --from-paths src --ignore-src -r -y
+          colcon build
+
+  cpp_linting:
+    name: C++ Linting
+    runs-on: ubuntu-22.04
+    container: robojackets/urc-baseimage:humble
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Run Uncrustify
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          ament_uncrustify -c ament_code_style.cfg
+
+  python_linting:
+    name: Python Linting
+    runs-on: ubuntu-22.04
+    container: robojackets/urc-baseimage:humble
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Run flake8
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          ament_flake8
+  
+  build_linting:
+    name: Build Linting
+    runs-on: ubuntu-22.04
+    container: robojackets/urc-baseimage:humble
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Run xmllint
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          ament_xmllint
+
+      - name: Run ament_lint_cmake
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          ament_lint_cmake

@@ -1,0 +1,1 @@
+add_subdirectory(launch_tests)
