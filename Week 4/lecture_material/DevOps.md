@@ -26,6 +26,18 @@ Some of the tests we use include:
 2. Checking your code's adherence to the style guidelines
 3. Checking your code against any unit tests
 
-You can actually check the status of your code 
+You can actually check the status of the code in your branch commits in our repo thanks to CI/CD! Proceed to the Actions tab at the top of GitHub, and
+filter the workflow runs by your branch name
+
+![GitHub Actions Location](../../documents/pictures/github_actions.png)
+
+Click on any of the pushes you made to see their pipeline progress. Click on any of the individual jobs to see the tests running progress and the failure
+details if applicable. 
+
+![Individual GitHub Action Job](../../documents/pictures/individual_job.png)
+
 
 ## Test-Driven Development
+
+Test-driven development (TDD) is about developing tests before or during the process of writing code. It can help you know if your code is compliant
+during the process of development, and plays very well with CI/CD patterns. You will be using TDD during the coding exercises today.
