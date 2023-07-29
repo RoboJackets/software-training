@@ -75,8 +75,14 @@ install(TARGETS
 
 # Only activates if running 'colcon test'
 if(BUILD_TESTING)
-  # Finds any unit tests, then runs them
   find_package(ament_lint_auto REQUIRED)
+  # Invokes the unit testing dir's CMakeLists.txt as a child process
+  add_subdirectory(test)
+  # the following line skips the copyright linker
+  set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips cpplint (only works in a git repo)
+  set(ament_cmake_cpplint_FOUND TRUE)
+  # Finds test dependencies
   ament_lint_auto_find_test_dependencies()
 endif()
 

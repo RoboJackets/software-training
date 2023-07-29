@@ -9,18 +9,18 @@ import launch_testing
 import launch_testing_ros
 import pytest
 import sensor_msgs.msg
-import urc_msgs.msg
+import joystick_msgs.msg
 
 
 @pytest.mark.rostest
 def generate_test_description():
 
     joystick_driver = launch_ros.actions.Node(
-            package='urc_platform',
-            executable='urc_platform_JoystickDriver',
+            package='joystick_package',
+            executable='joystick_package_JoystickDriver',
             output='screen',
             parameters=[
-                PathJoinSubstitution([FindPackageShare('urc_platform'), 'config',
+                PathJoinSubstitution([FindPackageShare('joystick_package'), 'config',
                                      'joystick_driver_params.yaml'])
             ],
             remappings=[
@@ -52,7 +52,7 @@ class TestJoystickDriver(unittest.TestCase):
         )
 
         self.velocitySub = self.node.create_subscription(
-            urc_msgs.msg.VelocityPair, '/motors', self.velocityCallback, 1
+            joystick_msgs.msg.VelocityPair, '/motors', self.velocityCallback, 1
         )
         self.received_vel_msg = None
 
