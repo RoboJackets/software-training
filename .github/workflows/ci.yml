@@ -49,7 +49,6 @@ jobs:
         shell: bash
         run: |
           source /opt/ros/humble/setup.bash
-          touch external/AMENT_IGNORE
           ament_uncrustify -c ament_code_style.cfg
 
   python_linting:
@@ -66,7 +65,7 @@ jobs:
         shell: bash
         run: |
           source /opt/ros/humble/setup.bash
-          ament_flake8 --exclude external
+          ament_flake8
   
   build_linting:
     name: Build Linting
@@ -82,11 +81,10 @@ jobs:
         shell: bash
         run: |
           source /opt/ros/humble/setup.bash
-          ament_xmllint --exclude external
+          ament_xmllint
 
       - name: Run ament_lint_cmake
         shell: bash
         run: |
           source /opt/ros/humble/setup.bash
-          touch external/AMENT_IGNORE
           ament_lint_cmake
