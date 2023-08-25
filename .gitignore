@@ -207,3 +207,8 @@ cython_debug/
 *.exe
 *.out
 *.app
+
+# ROS Build Directories
+log/
+build/
+install/
