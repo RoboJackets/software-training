@@ -50,7 +50,7 @@ ament_target_dependencies(${PROJECT_NAME}
 rclcpp_components_register_node(
   ${PROJECT_NAME}
   PLUGIN "key_to_twist::KeyToTwist"
-  EXECUTABLE ${PROJECT_NAME}_KeyToTwist
+  EXECUTABLE key_to_twist
 )
 
 # Puts the launch and config files inside the "install" folder in your colcon workspace

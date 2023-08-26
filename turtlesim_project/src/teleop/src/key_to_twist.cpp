@@ -7,11 +7,11 @@ namespace key_to_twist
       : rclcpp::Node("key_to_twist", options)
   {
     _cmd_publisher = create_publisher<geometry_msgs::msg::Twist>(
-        "~/cmd_vel",
+        "turtle1/cmd_vel",
         rclcpp::SystemDefaultsQoS());
 
     _key_press_subscriber = create_subscription<std_msgs::msg::String>(
-        "~/char_pressed", rclcpp::SystemDefaultsQoS(), [this](const std_msgs::msg::String msg)
+        "/char_pressed", rclcpp::SystemDefaultsQoS(), [this](const std_msgs::msg::String msg)
         { keyPressCallback(msg); });
   }
 
@@ -23,9 +23,24 @@ namespace key_to_twist
      *
      * This function should publish a Twist msg to the cmd_vel topic
      * corresponding to the key that was pressed.
+     *
+     * The Twist message has both linear and angular velocity fields
+     * which should be set as follows:
+     *  - If the "w" key is pressed, set linear velocity to 1.0.
+     *  - If the "a" key is pressed, set angular velocity to 1.0.
+     *  - If the "s" key is pressed, set linear velocity to -1.0.
+     *  - If the "d" key is pressed, set angular velocity to -1.0.
      */
 
-    auto cmd_vel = geometry_msgs::msg::Twist();
+    double linear = 0;
+    double angular = 0;
+
+    // Your code here. Set linear and angular to the appropriate values before publishing the Twist message.
+
+    auto twist = geometry_msgs::msg::Twist();
+    twist.angular.z = angular;
+    twist.linear.x = linear;
+    _cmd_publisher->publish(twist);
   }
 }
 
