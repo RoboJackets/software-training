@@ -11,13 +11,13 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(keyboard_publisher src/keyboard_publisher.cpp)
-target_include_directories(keyboard_publisher PUBLIC
+add_executable(key_to_twist src/key_to_twist.cpp)
+target_include_directories(key_to_twist PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(keyboard_publisher PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(key_to_twist PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-install(TARGETS keyboard_publisher
+install(TARGETS key_to_twist
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
