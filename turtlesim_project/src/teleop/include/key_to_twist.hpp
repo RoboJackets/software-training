@@ -4,6 +4,7 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+#include <std_msgs/msg/string.hpp>
 #include <rclcpp_components/register_node_macro.hpp>
 
 namespace key_to_twist

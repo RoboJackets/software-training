@@ -15,12 +15,17 @@ namespace key_to_twist
         { keyPressCallback(msg); });
   }
 
-  void KeyToTwist::keyPressCallback(const sensor_msgs::msg::Joy &msg)
+  void KeyToTwist::keyPressCallback(const std_msgs::msg::String &msg)
   {
-    // You have been provided a basic template for filling out the msg to be published.
+    /**
+     * @brief This function is called whenever a key is pressed.
+     * @param msg The message contains the key that was pressed.
+     *
+     * This function should publish a Twist msg to the cmd_vel topic
+     * corresponding to the key that was pressed.
+     */
 
     auto cmd_vel = geometry_msgs::msg::Twist();
-    cmd.header.stamp = this->get_clock()->now();
   }
 }
 
