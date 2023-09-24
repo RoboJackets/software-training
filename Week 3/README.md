@@ -5,3 +5,5 @@ Welcome to Week 3 of software training. We're finally ready to learn about **ROS
 ### 1. [Nodes and Messages](lecture_material/nodes_and_messages.md)
 
 ### 2. [Learning the ROS CLI](lecture_material/ros_cli.md)
+
+### 3. [Project](lecture_material/project.md)
