@@ -125,7 +125,7 @@ colcon build
 
 ## 12. Developing using the Docker NoVNC container
 
-1. Work on your code in `urc_container` locally to avoid input lag
+1. Work on your code in `training_ws` locally to avoid input lag
 2. When ready to test, you can build and run your code in the container just like on native Ubuntu!
 
 ## 13. Closing/Starting the Container
