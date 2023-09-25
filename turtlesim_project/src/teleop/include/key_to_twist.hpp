@@ -9,17 +9,17 @@
 
 namespace key_to_twist
 {
-    class KeyToTwist : public rclcpp::Node
-    {
-    public:
-        explicit KeyToTwist(const rclcpp::NodeOptions &options);
+class KeyToTwist : public rclcpp::Node
+{
+public:
+  explicit KeyToTwist(const rclcpp::NodeOptions & options);
 
-    private:
-        rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr _cmd_publisher;
-        rclcpp::Subscription<std_msgs::msg::String>::SharedPtr _key_press_subscriber;
+private:
+  rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr _cmd_publisher;
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr _key_press_subscriber;
 
-        void keyPressCallback(const std_msgs::msg::String &msg);
-    };
+  void keyPressCallback(const std_msgs::msg::String & msg);
+};
 }
 
 #endif
