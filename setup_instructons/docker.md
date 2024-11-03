@@ -156,9 +156,10 @@ rosdep update && rosdep install --from-paths src --ignore-src -r -y
     colcon build
     ```
 > **_NOTE_** if this is failing:
-> - check that `stsl` exists in the directory `/training_ws/src` 
-> - run `source `/opt/ros/humble/setup.bash`
-> - make sure you have enough RAM available
+> 1. check that `stsl` exists in the directory `/training_ws/src` 
+> 1. run `source `/opt/ros/humble/setup.bash`
+> 1. make sure the rosdep command ran sucessfully
+> 1. make sure you have enough RAM available
 
 1. source the result for future projects
     ```bash

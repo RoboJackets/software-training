@@ -254,6 +254,22 @@ For the quality of service (qos) parameter, use `rclcpp::SystemDefaultsQoS()`.
 
 For the callback, use `std::bind` to pass in the `OdometrySensorModel::UpdateMeasurement` function.
 
+<details>
+<summary>create_subscription documentation</summary>
+
+> **_NOTE_** The [ros documentation for create_subscription](https://docs.ros2.org/beta3/api/rclcpp/classrclcpp_1_1node_1_1Node.html#a65f9c3490df809ce3ece14fd83087008) is not congruent with how the compiler is set up (2nd and 3rd arguments are swapped). Refer to the following documentation:
+
+std::shared_ptr< SubscriptionT > rclcpp::node::Node::create_subscription	(	
+  const std::string & 	topic_name,
+  const rmw_qos_profile_t & 	qos_profile = rmw_qos_profile_default,
+  CallbackT && 	callback,
+  rclcpp::callback_group::CallbackGroup::SharedPtr 	group = nullptr,
+  bool 	ignore_local_publications = false,
+  typename rclcpp::message_memory_strategy::MessageMemoryStrategy< MessageT, Alloc >::SharedPtr 	msg_mem_strat = nullptr,
+  std::shared_ptr< Alloc > 	allocator = nullptr 
+)	
+</details>
+
 That's all the code we'll need for our constructor. After the constructor, add the definition for `UpdateMeasurement`. All this function is going to do is store the incoming message into the `last_msg_` member variable.
 
 ```C++
