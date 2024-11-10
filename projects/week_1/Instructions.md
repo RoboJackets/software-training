@@ -317,11 +317,11 @@ In both terminals, you'll need to start by sourcing the underlay setup file and 
 
 ```bash
 source /opt/ros/humble/setup.bash
-source ~/training_ws/install/setup.bash
+source ~/rj_training_container/training_ws/install/setup.bash
 ```
-> **NOTE** you may need to source the following on a docker container instead
+<!-- > **NOTE** you may need to source the following on a docker container instead
 ```bash
-```
+``` -->
 
 In the first terminal, launch the week 1 launch file.
 

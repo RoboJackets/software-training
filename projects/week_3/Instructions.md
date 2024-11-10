@@ -421,6 +421,13 @@ parameters=[
 
 Now our launch file actually loads the parameter file and sends all of our configured values to the node.
 
+> **NOTE** You will need to import missing packages. (os, get_package_share_directory, Launch Configuration)
+<details>
+<summar>Import Hint</summary>
+the parent package of `get_package_share_directory` is `ament_index_python.packages`
+the parent package of `LaunchConfiguration` is `launch.substitutions`
+</details>
+
 ### 3.12 Replace fake localizer in week 3 launch file
 
 There's one more launch file we need to edit. Right now, the top-level launch file for the week 3 project starts a fake localizer. We need to replace it with our new particle filter localizer.
