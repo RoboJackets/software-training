@@ -68,6 +68,11 @@ $ sudo apt update
 $ sudo apt upgrade
 ```
 
+Create a local branch and checkout into it. This will help you keep track of your changes.
+```bash
+$ git checkout -b <your_name>
+```
+
 ### 2.2 Test the simulator
    
 Before we start writing code, let's take a moment to introduce you to the robot simulator. To start the simulator, launch the `traini_simulation.launch.py` file in the `traini_bringup` package.

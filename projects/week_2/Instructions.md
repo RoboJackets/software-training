@@ -83,6 +83,11 @@ $ sudo apt update
 $ sudo apt upgrade
 ```
 
+Checkout into the local branch you created last time.
+```bash
+$ git checkout <your_name>
+```
+
 ### 3.2 Create new files
 
 You'll be implementing the two steps of this project, color detection and re-projection, as new fuctions defined in separate files from the node's main file. The first thing we need to do is add these files to our package.
