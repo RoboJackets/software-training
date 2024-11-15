@@ -151,9 +151,9 @@ Now that we understand the interface our new sensor model will have to implement
 
 ### 3.3 Declare sensor model class
 
-The first step to creating our new sensor model class is to add the two files we'll use to write our class. Go to [the src folder for the localization package](../../localization/src) and add two new files "odometry_sensor_model.hpp" and "odometry_sensor_model.cpp".
+1. The first step to creating our new sensor model class is to add the two files we'll use to write our class. Go to [the src folder for the localization package](../../localization/src) and add two new files "odometry_sensor_model.hpp" and "odometry_sensor_model.cpp".
 
-We'll need to add our new implementation file to the package's build rule. Open localization's [CMakeLists.txt](../../localization/CMakeLists.txt) and find the student code comment block in the call to `add_library`. Add "odometry_sensor_model.cpp" to the list of files given to the `add_library` function.
+1. We'll need to add our new implementation file to the package's build rule. Open localization's [CMakeLists.txt](../../localization/CMakeLists.txt) and find the student code comment block in the call to `add_library`. Add "odometry_sensor_model.cpp" to the list of files given to the `add_library` function.
 
 Back in [odometry_sensor_model.hpp](../../localization/src/odometry_sensor_model.hpp), we'll start by adding header guards.
 

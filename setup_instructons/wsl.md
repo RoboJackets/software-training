@@ -100,7 +100,7 @@ You can install the Windows Terminal app from the Microsoft Store: [App Store Pa
 
    ```bash
    cd ~/training_ws/src
-   git clone https://github.com/RoboJackets/software-training-old.git
+   git clone https://github.com/RoboJackets/software-training.git
    ````
 
 ## 7 Install ROS dependencies

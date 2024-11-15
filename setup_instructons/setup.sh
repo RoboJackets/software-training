@@ -27,8 +27,7 @@ clone_repository() {
 # Determine the platform
 platform=$(uname)
 if [[ "$platform" == "Darwin" || "$platform" == "Linux" || "$platform" == *"MINGW"* || "$platform" == *"MSYS"* ]]; then
-    # clone_repository "https://github.com/RoboJackets/software-training.git" "training_ws/src/trainingv2"
-    clone_repository "https://github.com/RoboJackets/software-training-old.git" "training_ws/src/software-training-old"
+    clone_repository "https://github.com/RoboJackets/software-training.git" "training_ws/src/software-training"
     clone_repository "https://github.com/RoboJackets/stsl.git" "training_ws/src/stsl"
 else
     echo "Unsupported platform: $platform"

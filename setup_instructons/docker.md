@@ -49,7 +49,7 @@ Search for and install the following extensions in VS Code
 
 1. clone this repo
     ```bash
-        git clone https://github.com/RoboJackets/software-training-old.git
+        git clone https://github.com/RoboJackets/software-training.git
     ```
 
 ## 4. Create directory to mount container
@@ -81,7 +81,7 @@ Our installation script will:
 1. Download the script
 
    ```bash
-   wget https://github.com/RoboJackets/software-training-old/blob/main/setup_instructons/setup.sh
+   wget https://github.com/RoboJackets/software-training/blob/main/setup_instructons/setup.sh
    ```
 
 1. Run the script

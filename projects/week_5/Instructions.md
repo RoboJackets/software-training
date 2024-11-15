@@ -226,9 +226,30 @@ if (!tf_buffer_.canTransform(robot_frame_id_, map_frame_id_, tf2::TimePointZero)
 
 Now that we've done all of our setup and error checking, it's time to actually get a transform! Find the `GetRobotLocation` function. This function is responsible for checking TF to get our robot's current location in the map frame. To do this, we'll use the TF buffer's `lookupTransform` function. We need to give it a source frame and a target frame, and this is where things can get a little confusing.
 
-When looking up a pose via `lookupTransform`, it sometimes feel like your source and target frames are backwards. The thing to remember is that the transforms we get back from TF are always the transform needed to convert a location in the source frame to the same location relative to the target frame. If we want to get the transform that tells us the pose of frame A relative to frame B, we need to use frame B as the source and frame A as the target.
+When looking up a pose via `lookupTransform`, it sometimes feel like your source and target frames are backwards. The thing to remember is that the transforms we get back from TF are always the transform needed to convert a location in the source frame to the same location relative to the target frame. If we want to get the transform that tells us the pose of frame B relative to frame A, we need to use frame A as the source and frame B as the target. In the following example TF would return $R_A^B$
 
 <!-- TODO give an example to explain this better -->
+![Coodrdinate Frames Example]()
+```math
+P^B = R_A^B P^A 
+```
+where $R_A^B$ denotes the rotation from frame $A$ to frame $B$
+
+```math
+P^A = \begin{bmatrix}
+p_{ax}
+ \\
+p_{ay}
+\end{bmatrix}
+```
+
+```math
+P^B = \begin{bmatrix}
+cos(\theta)p_{ax} - sin(\theta)p_{ay}
+ \\
+sin(\theta)p_{ax} + cos(\theta)p_{ay}
+\end{bmatrix}
+```
 
 So, to get our robot's pose relative to the map frame, we need to lookup the transform from the robot frame to the map frame. Call `lookupTransform` on `tf_buffer_`. Use `map_frame_id_` as the target frame, `robot_frame_id_` as the source frame, and `tf2::TimePointZero` as the timestamp. Save the result in a constant variable named `robot_transform`.
 

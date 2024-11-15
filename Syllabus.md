@@ -4,7 +4,6 @@ The RoboJackets software training program is designed to prepare you to work on 
 
 ## Trainers
 - Mukilan Karthikeyan (Software Core Chair)
-- Aalind Tyagi (Software Training Lead) [using software-v3](https://github.com/RoboJackets/software-training-v3)
 
 
 ## Meeting Schedules
@@ -32,7 +31,7 @@ MoSE G011 | MoSE G011
 
   Where all training videos will be posted.
 
-- [Software Training Repository](https://github.com/RoboJackets/software-training-old)
+- [Software Training Repository](https://github.com/RoboJackets/software-training)
 
   The GitHub repository that hosts most of the resources for the software training program, including project instructions and starter code.
 
