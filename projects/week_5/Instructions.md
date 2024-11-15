@@ -86,13 +86,13 @@ This means, at each time step, our new map probability is just the sum of the pr
 
 The inverse sensor model gives us the probability that the cell is occupied given a measurement of that cell's location. We'll be using this as our inverse sensor model:
 
-$
+```math
 InverseSensorModel(m_t, x_t, z_t) = e^{(-K_d*D)} *  
 \begin{cases}
   K_{hit} & if & z_t == 1 \\
   K_{miss} & if & z_t == 0
 \end{cases}
-$
+```
 
 This model has two parts. The first part, $e^{(-K_d*D)}$, is an arbitrary scaling factor we're including that effectively tells our robot it should be less confident in measurements farther away from it. We do this because farther measurements tend to be noisier than close measurements. $D$ is the distance from the robot to the measurement location. $K_d$ is a constant you can use to tweak the degree to which this effects the final result. 
 
