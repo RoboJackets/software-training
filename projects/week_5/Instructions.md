@@ -100,13 +100,13 @@ The second half of our inverse sensor model is a step function that simply retur
 
 Plugging this model into the update equation above gives us the final math we'll be using in this project to update each cell of our map based on the obstacle detections we get from the color detection code you wrote in project 2.
 
-$
+```math
 l(m_{t+1}) = l(m_t) + e^{(-K_d*D)} *  
 \begin{cases}
   K_{hit} & if & z_t == 1 \\
   K_{miss} & if & z_t == 0
 \end{cases}
-$
+```
 
 
 ### 1.5 The Code
@@ -268,13 +268,13 @@ const auto distance_robot_to_measurement = std::hypot(
 
 Recall from the Background section above that this is the update equation we'll be using:
 
-$
+```math
 l(m_{t+1}) = l(m_t) + e^{(-K_d*D)} *  
 \begin{cases}
   K_{hit} & if & z_t == 1 \\
   K_{miss} & if & z_t == 0
 \end{cases}
-$
+```
 
 It's time for us to implement this in our code. [std::exp]() is the C++ standard library function for raising Euler's number ($e$) by a power. Then we multiply that by one of our probability constants ($K_{hit}$ or $K_{miss}$) depending on our obstacle detection.
 
