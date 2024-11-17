@@ -108,6 +108,11 @@ $ sudo apt update
 $ sudo apt upgrade
 ```
 
+Checkout into your local branch.
+```bash
+$ git checkout <your_name>
+```
+
 If you have done a different installation of stsl that is not through apt make sure to pull the latest code there.
 
 ### 3.2 Setup Kalman filter class

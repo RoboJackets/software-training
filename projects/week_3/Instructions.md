@@ -116,6 +116,11 @@ $ sudo apt update
 $ sudo apt upgrade
 ```
 
+Checkout into your local branch.
+```bash
+$ git checkout <your_name>
+```
+
 If you have done a different installation of stsl that is not through apt make sure to pull the latest code there.
 
 ### 3.2 Inspect SensorModel interface
@@ -146,9 +151,9 @@ Now that we understand the interface our new sensor model will have to implement
 
 ### 3.3 Declare sensor model class
 
-The first step to creating our new sensor model class is to add the two files we'll use to write our class. Go to [the src folder for the localization package](../../localization/src) and add two new files "odometry_sensor_model.hpp" and "odometry_sensor_model.cpp".
+1. The first step to creating our new sensor model class is to add the two files we'll use to write our class. Go to [the src folder for the localization package](../../localization/src) and add two new files "odometry_sensor_model.hpp" and "odometry_sensor_model.cpp".
 
-We'll need to add our new implementation file to the package's build rule. Open localization's [CMakeLists.txt](../../localization/CMakeLists.txt) and find the student code comment block in the call to `add_library`. Add "odometry_sensor_model.cpp" to the list of files given to the `add_library` function.
+1. We'll need to add our new implementation file to the package's build rule. Open localization's [CMakeLists.txt](../../localization/CMakeLists.txt) and find the student code comment block in the call to `add_library`. Add "odometry_sensor_model.cpp" to the list of files given to the `add_library` function.
 
 Back in [odometry_sensor_model.hpp](../../localization/src/odometry_sensor_model.hpp), we'll start by adding header guards.
 
@@ -253,6 +258,22 @@ Our new sensor model will be using `nav_msgs::msg::Odometry` messages from the "
 For the quality of service (qos) parameter, use `rclcpp::SystemDefaultsQoS()`.
 
 For the callback, use `std::bind` to pass in the `OdometrySensorModel::UpdateMeasurement` function.
+
+<details>
+<summary>create_subscription documentation</summary>
+
+> **_NOTE_** The [ros documentation for create_subscription](https://docs.ros2.org/beta3/api/rclcpp/classrclcpp_1_1node_1_1Node.html#a65f9c3490df809ce3ece14fd83087008) is not congruent with how the compiler is set up (2nd and 3rd arguments are swapped). Refer to the following documentation:
+
+std::shared_ptr< SubscriptionT > rclcpp::node::Node::create_subscription	(	
+  const std::string & 	topic_name,
+  const rmw_qos_profile_t & 	qos_profile = rmw_qos_profile_default,
+  CallbackT && 	callback,
+  rclcpp::callback_group::CallbackGroup::SharedPtr 	group = nullptr,
+  bool 	ignore_local_publications = false,
+  typename rclcpp::message_memory_strategy::MessageMemoryStrategy< MessageT, Alloc >::SharedPtr 	msg_mem_strat = nullptr,
+  std::shared_ptr< Alloc > 	allocator = nullptr 
+)	
+</details>
 
 That's all the code we'll need for our constructor. After the constructor, add the definition for `UpdateMeasurement`. All this function is going to do is store the incoming message into the `last_msg_` member variable.
 
@@ -399,6 +420,11 @@ parameters=[
 ```
 
 Now our launch file actually loads the parameter file and sends all of our configured values to the node.
+
+> **NOTE** You will need to import missing packages. (os, get_package_share_directory, Launch Configuration)
+> the parent package of `get_package_share_directory` is `ament_index_python.packages`
+> the parent package of `LaunchConfiguration` is `launch.substitutions`
+
 
 ### 3.12 Replace fake localizer in week 3 launch file
 

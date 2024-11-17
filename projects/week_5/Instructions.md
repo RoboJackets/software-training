@@ -86,13 +86,13 @@ This means, at each time step, our new map probability is just the sum of the pr
 
 The inverse sensor model gives us the probability that the cell is occupied given a measurement of that cell's location. We'll be using this as our inverse sensor model:
 
-$
+```math
 InverseSensorModel(m_t, x_t, z_t) = e^{(-K_d*D)} *  
 \begin{cases}
   K_{hit} & if & z_t == 1 \\
   K_{miss} & if & z_t == 0
 \end{cases}
-$
+```
 
 This model has two parts. The first part, $e^{(-K_d*D)}$, is an arbitrary scaling factor we're including that effectively tells our robot it should be less confident in measurements farther away from it. We do this because farther measurements tend to be noisier than close measurements. $D$ is the distance from the robot to the measurement location. $K_d$ is a constant you can use to tweak the degree to which this effects the final result. 
 
@@ -100,13 +100,13 @@ The second half of our inverse sensor model is a step function that simply retur
 
 Plugging this model into the update equation above gives us the final math we'll be using in this project to update each cell of our map based on the obstacle detections we get from the color detection code you wrote in project 2.
 
-$
+```math
 l(m_{t+1}) = l(m_t) + e^{(-K_d*D)} *  
 \begin{cases}
   K_{hit} & if & z_t == 1 \\
   K_{miss} & if & z_t == 0
 \end{cases}
-$
+```
 
 
 ### 1.5 The Code
@@ -165,6 +165,11 @@ $ sudo apt update
 $ sudo apt upgrade
 ```
 
+Checkout into your local branch.
+```bash
+$ git checkout <your_name>
+```
+
 If you have done a different installation of stsl that is not through apt make sure to pull the latest code there.
 
 ### 3.2 Setup TF Listener
@@ -221,9 +226,30 @@ if (!tf_buffer_.canTransform(robot_frame_id_, map_frame_id_, tf2::TimePointZero)
 
 Now that we've done all of our setup and error checking, it's time to actually get a transform! Find the `GetRobotLocation` function. This function is responsible for checking TF to get our robot's current location in the map frame. To do this, we'll use the TF buffer's `lookupTransform` function. We need to give it a source frame and a target frame, and this is where things can get a little confusing.
 
-When looking up a pose via `lookupTransform`, it sometimes feel like your source and target frames are backwards. The thing to remember is that the transforms we get back from TF are always the transform needed to convert a location in the source frame to the same location relative to the target frame. If we want to get the transform that tells us the pose of frame A relative to frame B, we need to use frame B as the source and frame A as the target.
+When looking up a pose via `lookupTransform`, it sometimes feel like your source and target frames are backwards. The thing to remember is that the transforms we get back from TF are always the transform needed to convert a location in the source frame to the same location relative to the target frame. If we want to get the transform that tells us the pose of frame B relative to frame A, we need to use frame A as the source and frame B as the target. In the following example TF would return $R_A^B$
 
 <!-- TODO give an example to explain this better -->
+![Coodrdinate Frames Example]()
+```math
+P^B = R_A^B P^A 
+```
+where $R_A^B$ denotes the rotation from frame $A$ to frame $B$
+
+```math
+P^A = \begin{bmatrix}
+p_{ax}
+ \\
+p_{ay}
+\end{bmatrix}
+```
+
+```math
+P^B = \begin{bmatrix}
+cos(\theta)p_{ax} - sin(\theta)p_{ay}
+ \\
+sin(\theta)p_{ax} + cos(\theta)p_{ay}
+\end{bmatrix}
+```
 
 So, to get our robot's pose relative to the map frame, we need to lookup the transform from the robot frame to the map frame. Call `lookupTransform` on `tf_buffer_`. Use `map_frame_id_` as the target frame, `robot_frame_id_` as the source frame, and `tf2::TimePointZero` as the timestamp. Save the result in a constant variable named `robot_transform`.
 
@@ -263,13 +289,13 @@ const auto distance_robot_to_measurement = std::hypot(
 
 Recall from the Background section above that this is the update equation we'll be using:
 
-$
+```math
 l(m_{t+1}) = l(m_t) + e^{(-K_d*D)} *  
 \begin{cases}
   K_{hit} & if & z_t == 1 \\
   K_{miss} & if & z_t == 0
 \end{cases}
-$
+```
 
 It's time for us to implement this in our code. [std::exp]() is the C++ standard library function for raising Euler's number ($e$) by a power. Then we multiply that by one of our probability constants ($K_{hit}$ or $K_{miss}$) depending on our obstacle detection.
 

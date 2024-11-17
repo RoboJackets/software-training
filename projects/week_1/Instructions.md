@@ -68,6 +68,11 @@ $ sudo apt update
 $ sudo apt upgrade
 ```
 
+Create a local branch and checkout into it. This will help you keep track of your changes.
+```bash
+$ git checkout -b <your_name>
+```
+
 ### 2.2 Test the simulator
    
 Before we start writing code, let's take a moment to introduce you to the robot simulator. To start the simulator, launch the `traini_simulation.launch.py` file in the `traini_bringup` package.
@@ -78,7 +83,10 @@ ros2 launch rj_training_bringup simluator.launch.py -->
 $ ros2 launch traini_bringup traini_simulation.launch.py
 ```
 
-**Tip:** Don't forget to source your ROS underlay first with `source /opt/ros/humble/setup.bash`.
+**Tip:** Don't forget to source your ROS underlay first with 
+```bash
+source /opt/ros/humble/setup.bash
+```
 
 You should now see Gazebo with the virtual world we'll be using for our projects.
 
@@ -309,8 +317,11 @@ In both terminals, you'll need to start by sourcing the underlay setup file and 
 
 ```bash
 source /opt/ros/humble/setup.bash
-source ~/training_ws/install/setup.bash
+source ~/rj_training_container/training_ws/install/setup.bash
 ```
+<!-- > **NOTE** you may need to source the following on a docker container instead
+```bash
+``` -->
 
 In the first terminal, launch the week 1 launch file.
 

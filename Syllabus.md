@@ -4,7 +4,6 @@ The RoboJackets software training program is designed to prepare you to work on 
 
 ## Trainers
 - Mukilan Karthikeyan (Software Core Chair)
-- Aalind Tyagi (Software Training Lead) [using software-v3](https://github.com/RoboJackets/software-training-v3)
 
 
 ## Meeting Schedules
@@ -32,7 +31,7 @@ MoSE G011 | MoSE G011
 
   Where all training videos will be posted.
 
-- [Software Training Repository](https://github.com/RoboJackets/software-training-old)
+- [Software Training Repository](https://github.com/RoboJackets/software-training)
 
   The GitHub repository that hosts most of the resources for the software training program, including project instructions and starter code.
 
@@ -74,10 +73,14 @@ Week | Robotics Theory | ROS | C++
 ## Additional Resources
 The following resources are great supplemental material to learn more about software for robotics applications.
 
-- [Learn Git](https://learngitbranching.js.org/?locale=en_US)
-- [The Linux command line](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
-- [Robotics and Perception Textbook](https://www.roboticsbook.org/intro.html)
-- [Broader view on Controls Matlab videos ](https://www.mathworks.com/videos/tech-talks.html)
+1. [Learn Git](https://learngitbranching.js.org/?locale=en_US)
+1. [The Linux command line](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
+1. [Robotics and Perception Textbook](https://www.roboticsbook.org/intro.html)
+1. [Broader view on Controls Matlab videos ](https://www.mathworks.com/videos/tech-talks.html)
+
+1. [Quaternions](https://www.youtube.com/watch?v=d4EgbgTm0Bg)
+1. [Quaternion Interactive Tool](https://www.youtube.com/watch?v=zjMuIxRvygQ)
+
 <!-- [Nvidia's Isaac ROS](https://developer.nvidia.com/isaac/ros) -->
 
 
