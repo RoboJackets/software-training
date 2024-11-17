@@ -229,24 +229,29 @@ Now that we've done all of our setup and error checking, it's time to actually g
 When looking up a pose via `lookupTransform`, it sometimes feel like your source and target frames are backwards. The thing to remember is that the transforms we get back from TF are always the transform needed to convert a location in the source frame to the same location relative to the target frame. If we want to get the transform that tells us the pose of frame B relative to frame A, we need to use frame A as the source and frame B as the target. In the following example TF would return $R_A^B$
 
 <!-- TODO give an example to explain this better -->
-![Coodrdinate Frames Example]()
+![Coodrdinate Frames Example](coordinate_transform_example.png)
 ```math
 P^B = R_A^B P^A 
 ```
-where $R_A^B$ denotes the rotation from frame $A$ to frame $B$
+where $R_A^B$ denotes the rotation of the playe by $\theta$ degrees (all points on the $R^2$ plane to roate counterclockwise $\theta$ degrees about the origin.) In this case because frame B is offset from frame $A$ by a rotation of $\theta$ degrees $R_A^B$ also represents the transformation from frame $A$ to frame $B$. (Things to look into: Quaternion rotation & homogeneous matricies for state representation)
 
 ```math
 P^A = \begin{bmatrix}
-p_{ax}
- \\
+p_{ax} \\
 p_{ay}
 \end{bmatrix}
 ```
 
 ```math
+R_A^B = \begin{bmatrix}
+cos(\theta) &  - sin(\theta) \\
+sin(\theta) &  + cos(\theta)
+\end{bmatrix}
+```
+
+```math
 P^B = \begin{bmatrix}
-cos(\theta)p_{ax} - sin(\theta)p_{ay}
- \\
+cos(\theta)p_{ax} - sin(\theta)p_{ay} \\
 sin(\theta)p_{ax} + cos(\theta)p_{ay}
 \end{bmatrix}
 ```

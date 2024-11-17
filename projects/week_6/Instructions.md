@@ -191,10 +191,10 @@ MatrixType estimate_covariance_;
 
 The first three variables come from the model the Kalman Filter assumes about our system. This model features two equations that describe how our system's state changes with each time step and how our measurements are derived from our system's state.
 
-$
+```math
 y_t = Hx_t+v_t \\
 x_{t+1} = Ax_t+Bu_t+w_t \\
-$
+```
 
 * `transition_matrix_` ($A$)
 
@@ -281,10 +281,10 @@ Add a new function to `KalmanFilter` named `TimeUpdate`. This function takes no 
 
 In the body of this function, implement the predict step equations to update our estimate and estimate covariance.
 
-$
+```math
 \hat{x}^-_t = A\hat{x}^+_{t-1} \\
 P^-_t = AP^+_{t-1}A^T+Q
-$
+```
 
 $\hat{x}^+_{t-1}$ = extimate, before update
 
@@ -308,13 +308,13 @@ Add a new function to `KalmanFilter` called `MeasurementUpdate`. This function s
 
 Here's a break down of how to compute the Kalman measurement update.
 
-$
+```math
 S_t = H_tP^-_tH^T_t+R_t \\
 K_t = P^-_tH^T_tS^{-1}_t \\
 \hat{x}^+_t = \hat{x}^-_t+K_t(y_t - H_k\hat{x}^-_t) \\
 T_t = I-K_tH_t \\
 P^+_t = (T)P^-_t(T)^T+K_tR_tK^T_t
-$
+```
 
 $\hat{x}^-_t$ = estimate, before update
 

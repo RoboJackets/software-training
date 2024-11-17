@@ -151,9 +151,9 @@ This project will focus on implementing various functions used to make the A* pa
 
 Because `Point` in our code is actually `Eigen::Vector2d`, we can use Eigen operators. To find the distance between two `Vector2d` objects, we can take the norm of the difference. So, to check if the given point is our goal position, we'll see if the distance to our goal is less than a configurable threshold.
 
-$
+```math
 |Point - Goal| < threshold
-$
+```
 
 Find the student code block in the `IsGoal()` function and implement the function:
 
