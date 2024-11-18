@@ -194,6 +194,7 @@ The first three variables come from the model the Kalman Filter assumes about ou
 ```math
 y_t = Hx_t+v_t \\
 ```
+
 ```math
 x_{t+1} = Ax_t+Bu_t+w_t \\
 ```
