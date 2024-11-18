@@ -194,8 +194,10 @@ The first three variables come from the model the Kalman Filter assumes about ou
 ```math
 y_t = Hx_t+v_t
 ```
-$hi$
-$x_{t+1} = Ax_t+Bu_t+w_t$
+
+```math
+x_{t+1} = Ax_t+Bu_t+w_t
+```
 * `transition_matrix_` ($A$)
 
    holds the matrix that describes how the state estimate changes with each time step of the filter. This represents our motion equation. We are assuming that our $B$ matrix is zero, therefore there is no control to consider. Furthermore for this example our tag location will not move so we can also set the $A$ matrix to the identity. That means our next location is the previous location with respect to the motion update.
