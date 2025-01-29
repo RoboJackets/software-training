@@ -81,7 +81,7 @@ Our installation script will:
 1. Download the script
 
    ```bash
-   wget https://github.com/RoboJackets/software-training/blob/main/setup_instructons/setup.sh
+   wget https://raw.githubusercontent.com/RoboJackets/software-training/refs/heads/main/setup_instructons/setup.sh
    ```
 
 1. Run the script
