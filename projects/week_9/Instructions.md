@@ -17,3 +17,5 @@ We strongly recommend viewing this file with a rendered markdown viewer. You can
 ![RRT Pseudocode](./rrt_pseudo_code.png)
 
 
+RRT and RRT*
+

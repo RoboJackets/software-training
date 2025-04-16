@@ -74,11 +74,12 @@ $ git checkout -b <your_name>
 ```
 
 ### 2.2 Test the simulator
-   
+
 Before we start writing code, let's take a moment to introduce you to the robot simulator. To start the simulator, launch the `traini_simulation.launch.py` file in the `traini_bringup` package.
 
 <!-- TODO(barulicm) Should we put all launch files that the students use directly in rj_training_bringup for consistency? ie
 ros2 launch rj_training_bringup simluator.launch.py -->
+1. Bring up the Simulatior
 ```bash
 $ ros2 launch traini_bringup traini_simulation.launch.py
 ```
@@ -86,12 +87,14 @@ $ ros2 launch traini_bringup traini_simulation.launch.py
 **Tip:** Don't forget to source your ROS underlay first with 
 ```bash
 source /opt/ros/humble/setup.bash
+source ~/rj_training_container/training_ws/install/setup.bash
 ```
 
 You should now see Gazebo with the virtual world we'll be using for our projects.
 
 ![Training World](training_world.jpg)
 
+1. In a seperate Terminal instance: 
 There are two ways to manually drive the robot around. The first uses the `teleop_twist_keyboard` package to drive the robot with your keyboard. To do this, run the `teleop_twist_keyboard` node.
 
 ```bash
@@ -311,9 +314,10 @@ If you do have any errors, you'll need to fix them before you can run your node.
 
 ### 2.10 Run project
 
-To run this project, we'll need two terminal windows or tabs.
-
-In both terminals, you'll need to start by sourcing the underlay setup file and the training workspace overlay setup file.
+1. Open two termial tabs
+  - To run this project, we'll need two terminal windows or tabs. One is to launch the sim and the other is for control inputs.
+1. Source the underlay script in both terminals
+  - In both terminals, you'll need to start by sourcing the underlay setup file and the training workspace overlay setup file.
 
 ```bash
 source /opt/ros/humble/setup.bash
@@ -322,8 +326,7 @@ source ~/rj_training_container/training_ws/install/setup.bash
 <!-- > **NOTE** you may need to source the following on a docker container instead
 ```bash
 ``` -->
-
-In the first terminal, launch the week 1 launch file.
+1. In the first terminal, launch the week 1 launch file.
 
 ```bash
 ros2 launch rj_training_bringup week_1.launch.xml
@@ -331,7 +334,7 @@ ros2 launch rj_training_bringup week_1.launch.xml
 
 This will open up the simulator and a pre-configured rviz instance. A number of other nodes will also be started in the background, including the coordinate transform node you wrote!
 
-In the second terminal, we need to run a node that can drive the robot around. You can either use keyboard control or joystick control.
+1. In the second terminal, we need to run a node that can drive the robot around. You can either use keyboard control or joystick control.
 
 For joystick control:
 
