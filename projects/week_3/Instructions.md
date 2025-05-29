@@ -36,7 +36,7 @@ We strongly recommend viewing this file with a rendered markdown viewer. You can
 
 ## 1 Background
 
-In this project, we'll be implementing a particle filter for localization. Our robot will use this particle filter to figure out where it is in the world. Even when we have direct measurements on our state variables, sch as GPS satellites, there is always uncertainty associated with any measurement we get. Sometimes we can get a reasonable estimate using only a single source of information, but algorithms like the particle filter let us combine multiple sources of information to get an even more accurate estimate of our actual location. This approach is often called sensor fusion or filtering and can be generally applied to any robotics problem. Here we will focus on finding position of the robot in world frame.
+In this project, we'll be implementing a particle filter for localization. Our robot will use this particle filter to figure out where it is in the world. Even when we have direct measurements on our state variables, such as GPS satellites, there is always uncertainty associated with any measurement we get. Sometimes we can get a reasonable estimate using only a single source of information, but algorithms like the particle filter let us combine multiple sources of information to get an even more accurate estimate of our actual location. This approach is often called sensor fusion or filtering and can be generally applied to any robotics problem. Here we will focus on finding position of the robot in world frame.
 
 Our particle filter will incorporate three sources of information:
 
