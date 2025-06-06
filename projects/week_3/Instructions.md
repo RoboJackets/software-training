@@ -52,7 +52,18 @@ Our particle filter will incorporate three sources of information:
 
    The motion commands we send to the robot, via our teleoperation nodes (or autonomous navigation code in the future), are also useful for our particle filter. These commands can act as our motion model, telling our particle filter how we expect our robot to move (with some uncertainty, of course). Often your motion model will end up being another sensor, like an IMU, rather a command, but in simpler systems this can work.
 
-We'll be implemeneting the odometry sensor model and adding it to the list of models our particle fitler considers.
+<!-- TODO: mukilank-->
+
+In a particle filter the main steps are:
+1. intialize particles
+1. update particle based on motion model
+1. update particle weights based probability of real sensor reading aligning with particles's theoriecally senosr reading
+1. resample particles
+1. repeat
+
+We'll be implemeneting the odometry sensor model-> adding it to the list of models our particle fitler considers AND the particle handeling (init, motion update, weight update normalization, and resampling)
+
+<!-- TODO: mukilank-->
 
 To demonstrate our localizer this week, we'll be running your robot through the "[kidnapped robot problem](https://en.wikipedia.org/wiki/Kidnapped_robot_problem)." This involves putting our robot in a random location and making it figure out where it is on its own. Particle filters are pretty good at solving this problem if the environment around the robot is useful, since they can keep track of multiple possible locations for the robot at the same time. Other filtering techniques cannot do this easily.
 
@@ -338,9 +349,10 @@ To calculate the log probability we need here, we're going to divide the square 
 ```C++
 double log_prob = 0.0;
 log_prob += pow(last_msg_.twist.twist.linear.x - particle.x_vel, 2) / covariance_[0];
-log_prob += pow(last_msg_.twist.twist.angular.z - particle.yaw_vel, 2) / covariance_[1];
+log_prob += pow(last_msg_.twist.twist.angular.z + particle.yaw_vel, 2) / covariance_[1];
 return log_prob;
 ```
+Note that the part concerned with angular.z and yaw velocity is an addition because the reported z needs to be negated. You can find more about this implementation in the [motion_model.cpp](localization\src\motion_model.cpp) file
 
 ### 3.9 Implement ComputeLogNormalizer
 
@@ -507,7 +519,7 @@ Now that we have a feel for what the different tuning parameters can do, let's t
     </details>
 1. Odometry sensor model tuning
 
-    a. Try setting the measurement covariance very small for the odometry measurement (like 0.001), what do you see and why is this occu4ring?
+    a. Try setting the measurement covariance very small for the odometry measurement (like 0.001), what do you see and why is this occurring?
     <details>
     <summary><b>Hint:</b> Low Covariance </summary>
     <p>You should see that the particle filter has a harder time converging to the correct values since particle with a small amount of motion have a low probability. Since our motion model is injecting noise it is very unlikely that a particle will have close to the correct velocity estimate.</p>
