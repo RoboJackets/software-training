@@ -44,9 +44,12 @@ ParticleFilterLocalizer::ParticleFilterLocalizer(const rclcpp::NodeOptions & opt
   odom_pub_ = create_publisher<nav_msgs::msg::Odometry>("~/pose_estimate", 1);
   marker_pub_ = create_publisher<visualization_msgs::msg::Marker>("~/particles", 1);
 
+  //TODO: @mukilank switch to student code
+  // BEGIN STUDENT CODE
   num_particles_ = declare_parameter<int>("num_particles", 300);
   declare_parameter<double>("resample_threshold", 0.1);
   declare_parameter<double>("low_percentage_particles_to_drop", 0.1);
+  // END STUDENT CODE
 
   initial_range_.min_x = declare_parameter<double>("initial_range.min_x", -0.6);
   initial_range_.max_x = declare_parameter<double>("initial_range.max_x", 0.6);
@@ -78,11 +81,14 @@ void ParticleFilterLocalizer::CmdCallback(const geometry_msgs::msg::Twist::Share
 
 void ParticleFilterLocalizer::InitializeParticles()
 {
+  //TODO: @mukilank switch to student code
+  //begin student code
   particles_.resize(num_particles_);
   std::generate(
     particles_.begin(), particles_.end(),
     std::bind(&ParticleFilterLocalizer::GenerateNewParticle, this));
   NormalizeWeights();
+  //end student code
 }
 
 Particle ParticleFilterLocalizer::GenerateNewParticle()
@@ -134,6 +140,9 @@ void ParticleFilterLocalizer::NormalizeWeights()
     RCLCPP_INFO(get_logger(), "normalizer is zero%f\n", normalizer);
     normalizer = 1;
   }
+
+  //TODO: @mukilank switch to student code
+  //student code here
   search_weights_.clear();
   double running_sum = 0;
   min_weight_ = 1.0;
@@ -147,6 +156,7 @@ void ParticleFilterLocalizer::NormalizeWeights()
     max_weight_ = std::max(max_weight_, particle.weight);
     search_weights_.push_back(running_sum);
   }
+  //end student code 
 }
 
 Particle ParticleFilterLocalizer::CalculateEstimate()
@@ -217,6 +227,10 @@ void ParticleFilterLocalizer::ResampleParticles()
     }
   }
   last_resample_time_ = current_time;
+
+  
+  //TODO: @mukilank switch to student code
+  //begin student code
   CalculateAllParticleWeights(current_time);
   // resample particles uniformly across the entire state space
   std::vector<Particle> new_particles;
@@ -250,6 +264,7 @@ void ParticleFilterLocalizer::ResampleParticles()
     }
     new_particles.push_back(particles_[cur_index]);
   }
+  //end student code
   particles_ = new_particles;
 }
 
@@ -269,8 +284,11 @@ void ParticleFilterLocalizer::CalculateParticleWeight(
   double log_probability = 0.0;
   for (const auto & model : sensor_models_) {
     if (model->IsMeasurementAvailable(current_time)) {
+      //TODO: @mukilank switch to student code
+      // student code begin here
       log_probability += -0.5 * model->ComputeLogProb(particle);
       log_probability -= model->ComputeLogNormalizer();
+      //end student code
     }
   }
   particle.weight = exp(log_probability);

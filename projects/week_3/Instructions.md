@@ -349,7 +349,7 @@ To calculate the log probability we need here, we're going to divide the square 
 ```C++
 double log_prob = 0.0;
 log_prob += pow(last_msg_.twist.twist.linear.x - particle.x_vel, 2) / covariance_[0];
-log_prob += pow(last_msg_.twist.twist.angular.z + particle.yaw_vel, 2) / covariance_[1];
+log_prob += pow((-last_msg_.twist.twist.angular.z) - particle.yaw_vel, 2) / covariance_[1];
 return log_prob;
 ```
 Note that the part concerned with angular.z and yaw velocity is an addition because the reported z needs to be negated. You can find more about this implementation in the [motion_model.cpp](localization\src\motion_model.cpp) file
