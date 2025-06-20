@@ -52,17 +52,17 @@ Robotics theory videos should be watched before your team-specific meetings. C++
 
 [Course Introduction Video](https://youtu.be/LZ4-nDEAFcY)
 
-Week | Robotics Theory | ROS | C++
---- | --- | --- | ---
+Week | Robotics Theory | ROS | C++ | Projects
+--- | --- | --- | --- | --- |
 0 | | | [AP CS Review](https://youtube.com/playlist?list=PL1R5gSylLha2AOCmSaLdDlBMug5XFNfwv)
-1 | [Linear Algebra, Sensors, Coordinate Frames](https://youtube.com/playlist?list=PL1R5gSylLha2RjafLHG9lqNqZ2rzH_hdQ) | [Introduction to ROS and useful tools](https://youtube.com/playlist?list=PL1R5gSylLha0y1U3yHAkCYJXXL-GiJDwF) | [Introduction to C++](https://youtube.com/playlist?list=PL1R5gSylLha1TChL2Lkm6PQQnOPRSIpDK)
-2 | [Computer Vision](https://youtube.com/playlist?list=PL1R5gSylLha0cFU3nGomLr8cIUaKun6bl) | [rclcpp Basics, Timers, Topics](https://youtube.com/playlist?list=PL1R5gSylLha0wxbvXIiNeEr12aoO_VX_8) | [Classes, Inheritance, std::bind](https://youtube.com/playlist?list=PL1R5gSylLha3KemZ2wqInhNm-db8kR88r)
-3 | [Probability, Particle Filters](https://youtube.com/playlist?list=PL1R5gSylLha2ylxbALvguW15qf-mHjsGm)  | [Launch, Parameters](https://youtube.com/playlist?list=PL1R5gSylLha3YMGovXmHZGn9wVrAChkxk) | [Lifetime, References, Pointers](https://youtube.com/playlist?list=PL1R5gSylLha2BEzoEGSt-EAmx4HbvQ7RZ)
-4 | [Optimization](https://youtube.com/playlist?list=PL1R5gSylLha0975HYnqN-Jq4Jx0r7LiTu) | [Services](https://youtube.com/playlist?list=PL1R5gSylLha3QucE7Smr0-YvnV70fZkoq) | [Concurrency Basics](https://youtube.com/playlist?list=PL1R5gSylLha1B3HQldnfhFu4_rVZnW55q)
-5 | [SLAM, Mapping](https://www.youtube.com/watch?v=CgiVz-KMBH0&list=PL1R5gSylLha1cX02r8hiMA85vPmfSYHP_) | [TF, Custom Interfaces](https://youtube.com/playlist?list=PL1R5gSylLha2od_7P9YuSSLsKCd3vtCY7) | [Lambdas](https://youtube.com/playlist?list=PL1R5gSylLha1huMeonsTMxqU8DE7m_zWh)
-6 | [Kalman Filters](https://youtube.com/playlist?list=PL1R5gSylLha0j_tmn3YhTTs90-pUFuZH9) | [Quality of Service](https://youtube.com/playlist?list=PL1R5gSylLha0IvTKCOckpL5QvVB4Hn-97) | [Templates](https://youtube.com/playlist?list=PL1R5gSylLha3kQMd1tIxDywbOWNNYaiJM)
-7 | [Control](https://youtube.com/playlist?list=PL1R5gSylLha3nYaE3PTmJIon7GgIxzr_M) | [Actions](https://youtube.com/playlist?list=PL1R5gSylLha1qUf5ngWco_EnNfYsTzAUc) |
-8 | [Path Planning](https://youtube.com/playlist?list=PL1R5gSylLha1epFZYz_z2BKO0sSXNPcjM) | [Bags](https://youtube.com/playlist?list=PL1R5gSylLha2i-XmvxwzfPgBKSJ6EKcF4) | [Iterators, Algorithms](https://youtube.com/playlist?list=PL1R5gSylLha1l1f8OcxXCVtnh6XmPzFzU)
+1 | [Linear Algebra, Sensors, Coordinate Frames](https://youtube.com/playlist?list=PL1R5gSylLha2RjafLHG9lqNqZ2rzH_hdQ) | [Introduction to ROS and useful tools](https://youtube.com/playlist?list=PL1R5gSylLha0y1U3yHAkCYJXXL-GiJDwF) | [Introduction to C++](https://youtube.com/playlist?list=PL1R5gSylLha1TChL2Lkm6PQQnOPRSIpDK) | [Coordinate Frame Transforms](projects/week_1/Instructions.md)
+2 | [Computer Vision](https://youtube.com/playlist?list=PL1R5gSylLha0cFU3nGomLr8cIUaKun6bl) | [rclcpp Basics, Timers, Topics](https://youtube.com/playlist?list=PL1R5gSylLha0wxbvXIiNeEr12aoO_VX_8) | [Classes, Inheritance, std::bind](https://youtube.com/playlist?list=PL1R5gSylLha3KemZ2wqInhNm-db8kR88r) | [Color-based Obstacle Detection](projects/week_2/Instructions.md)
+3 | [Probability, Particle Filters](https://youtube.com/playlist?list=PL1R5gSylLha2ylxbALvguW15qf-mHjsGm)  | [Launch, Parameters](https://youtube.com/playlist?list=PL1R5gSylLha3YMGovXmHZGn9wVrAChkxk) | [Lifetime, References, Pointers](https://youtube.com/playlist?list=PL1R5gSylLha2BEzoEGSt-EAmx4HbvQ7RZ) | [Particle Filter Localization](projects/week_3/Instructions.md)
+4 | [Optimization](https://youtube.com/playlist?list=PL1R5gSylLha0975HYnqN-Jq4Jx0r7LiTu) | [Services](https://youtube.com/playlist?list=PL1R5gSylLha3QucE7Smr0-YvnV70fZkoq) | [Concurrency Basics](https://youtube.com/playlist?list=PL1R5gSylLha1B3HQldnfhFu4_rVZnW55q) | [Gradient Descent Optimization](projects/week_4/Instructions.md)
+5 | [SLAM, Mapping](https://www.youtube.com/watch?v=CgiVz-KMBH0&list=PL1R5gSylLha1cX02r8hiMA85vPmfSYHP_) | [TF, Custom Interfaces](https://youtube.com/playlist?list=PL1R5gSylLha2od_7P9YuSSLsKCd3vtCY7) | [Lambdas](https://youtube.com/playlist?list=PL1R5gSylLha1huMeonsTMxqU8DE7m_zWh) | [Mapping](projects/week_5/Instructions.md)
+6 | [Kalman Filters](https://youtube.com/playlist?list=PL1R5gSylLha0j_tmn3YhTTs90-pUFuZH9) | [Quality of Service](https://youtube.com/playlist?list=PL1R5gSylLha0IvTKCOckpL5QvVB4Hn-97) | [Templates](https://youtube.com/playlist?list=PL1R5gSylLha3kQMd1tIxDywbOWNNYaiJM) | [Kalman Filter Tracking](projects/week_6/Instructions.md)
+7 | [Control](https://youtube.com/playlist?list=PL1R5gSylLha3nYaE3PTmJIon7GgIxzr_M) | [Actions](https://youtube.com/playlist?list=PL1R5gSylLha1qUf5ngWco_EnNfYsTzAUc) | [LQR Controller](projects/week_7/Instructions.md)
+8 | [Path Planning](https://youtube.com/playlist?list=PL1R5gSylLha1epFZYz_z2BKO0sSXNPcjM) | [Bags](https://youtube.com/playlist?list=PL1R5gSylLha2i-XmvxwzfPgBKSJ6EKcF4) | [Iterators, Algorithms](https://youtube.com/playlist?list=PL1R5gSylLha1l1f8OcxXCVtnh6XmPzFzU) | [A-Star Path Planning](projects/week_8/Instructions.md)
 
 
 <!-- Coming Soon: 
