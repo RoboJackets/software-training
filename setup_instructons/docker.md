@@ -81,13 +81,13 @@ Our installation script will:
 1. Download the script
 
    ```bash
-   wget https://github.com/RoboJackets/software-training/blob/main/setup_instructons/setup.sh
+   wget https://raw.githubusercontent.com/RoboJackets/software-training/main/setup_instructons/setup.sh
    ```
     
     if the wget command does not work, alternatively try using curl:
     
     ```bash
-    $ curl -O https://raw.githubusercontent.com/RoboJackets/software-training/main/setup_instructons/setup.sh
+    curl -O https://raw.githubusercontent.com/RoboJackets/software-training/main/setup_instructons/setup.sh
     ```
 
 1. Run the script
