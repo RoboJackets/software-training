@@ -229,19 +229,21 @@ Now that we've done all of our setup and error checking, it's time to actually g
 When looking up a pose via `lookupTransform`, it sometimes feel like your source and target frames are backwards. The thing to remember is that the transforms we get back from TF are always the transform needed to convert a location in the source frame to the same location relative to the target frame. 
 
 As an example: if we have an object whose coordinates we know in Frame A and want to get the relative coordinates in Frame B we must first calcuate the (matrix) transformation that that takes us from Frame A to Frame B. That is, we want to get the transform that tells us the pose of Frame B relative to Frame A, we need to use Frame A as the source and Frame B as the target. In the following example TF would return $R_A^B$. That is to say: $R_A^B$ is the matrix that represents the basis vectors of B as defined in Frame A. 
-> A quick note about the notation here
-> Usually in matrix transformations the superscript notes "frame of reference this is relative to" (the target)
-> so $p_A$ is a point $p$ expressed relative to frame A 
+> A quick note about the notation here.
 >
-> And the subscript as the frame of reference you're starting from (the source) This is often expressed only for transfromaption 
+> Usually in matrix transformations the superscript notes "frame of reference this is relative to" (the target).
+> So $p_A$ is a point $p$ expressed relative to frame A 
+>
+> And the subscript as the frame of reference you're starting from (the source) This is often expressed only for transfromaption.
+> $T_A^B$ notes a transformation from a point currently expressed relative to Frame A to a point expressed relative to frame B
+
 
 If this is your first time wrangling the idea of matrcies as linear transformations a good starting point with animated explanation can be found [here in 3Blue1Brown's series](https://www.3blue1brown.com/lessons/linear-transformations#matrices). If you want to explore how this concept is usually presented in Linear Algebra coures you can dig into [GT's Interactive Linear Algebra](https://textbooks.math.gatech.edu/ila/chap-matrices.html).
 
-And a note about 
 
 <!-- TODO give an example to explain this better -->
 ![Coodrdinate Frames Example](coordinate_transform_example.png)
-The gray dot is our point p
+The gray dot is our point p.
 
 > Here we are mixing reference frame notation with vector notation so the subscript of a Matrix (denotes source frame) is different form the subscript of a vector(component)
 > $p^A$ is defined as <$p_ax, p_ay$> where the use of $p_ax$ denotes the component of $p^A$ in the $x$ direction in reference frame A
