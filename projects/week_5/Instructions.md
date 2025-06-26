@@ -226,17 +226,33 @@ if (!tf_buffer_.canTransform(robot_frame_id_, map_frame_id_, tf2::TimePointZero)
 
 Now that we've done all of our setup and error checking, it's time to actually get a transform! Find the `GetRobotLocation` function. This function is responsible for checking TF to get our robot's current location in the map frame. To do this, we'll use the TF buffer's `lookupTransform` function. We need to give it a source frame and a target frame, and this is where things can get a little confusing.
 
-When looking up a pose via `lookupTransform`, it sometimes feel like your source and target frames are backwards. The thing to remember is that the transforms we get back from TF are always the transform needed to convert a location in the source frame to the same location relative to the target frame. If we want to get the transform that tells us the pose of frame B relative to frame A, we need to use frame A as the source and frame B as the target. In the following example TF would return $R_A^B$
+When looking up a pose via `lookupTransform`, it sometimes feel like your source and target frames are backwards. The thing to remember is that the transforms we get back from TF are always the transform needed to convert a location in the source frame to the same location relative to the target frame. 
+
+As an example: if we have an object whose coordinates we know in Frame A and want to get the relative coordinates in Frame B we must first calcuate the (matrix) transformation that that takes us from Frame A to Frame B. That is, we want to get the transform that tells us the pose of Frame B relative to Frame A, we need to use Frame A as the source and Frame B as the target. In the following example TF would return $R_A^B$. That is to say: $R_A^B$ is the matrix that represents the basis vectors of B as defined in Frame A. 
+> A quick note about the notation here
+> Usually in matrix transformations the superscript notes "frame of reference this is relative to" (the target)
+> so $p_A$ is a point $p$ expressed relative to frame A 
+>
+> And the subscript as the frame of reference you're starting from (the source) This is often expressed only for transfromaption 
+
+If this is your first time wrangling the idea of matrcies as linear transformations a good starting point with animated explanation can be found [here in 3Blue1Brown's series](https://www.3blue1brown.com/lessons/linear-transformations#matrices). If you want to explore how this concept is usually presented in Linear Algebra coures you can dig into [GT's Interactive Linear Algebra](https://textbooks.math.gatech.edu/ila/chap-matrices.html).
+
+And a note about 
 
 <!-- TODO give an example to explain this better -->
 ![Coodrdinate Frames Example](coordinate_transform_example.png)
-```math
-P^B = R_A^B P^A 
-```
-where $R_A^B$ denotes the rotation of the playe by $\theta$ degrees (all points on the $R^2$ plane to roate counterclockwise $\theta$ degrees about the origin.) In this case because frame B is offset from frame $A$ by a rotation of $\theta$ degrees $R_A^B$ also represents the transformation from frame $A$ to frame $B$. (Things to look into: Quaternion rotation & homogeneous matricies for state representation)
+The gray dot is our point p
+
+> Here we are mixing reference frame notation with vector notation so the subscript of a Matrix (denotes source frame) is different form the subscript of a vector(component)
+> $p^A$ is defined as <$p_ax, p_ay$> where the use of $p_ax$ denotes the component of $p^A$ in the $x$ direction in reference frame A
 
 ```math
-P^A = \begin{bmatrix}
+p^B = R_A^B p^A 
+```
+where $R_A^B$ denotes the rotation of the plane by $\theta$ degrees (all points on the $R^2$ plane to roate counterclockwise $\theta$ degrees about the origin.) In this case because frame B is offset from frame $A$ by a rotation of $\theta$ degrees $R_A^B$ also represents the transformation from frame $A$ to frame $B$. (Things to look into: Quaternion rotation & homogeneous matricies for state representation)
+
+```math
+p^A = \begin{bmatrix}
 p_{ax} \\
 p_{ay}
 \end{bmatrix}
