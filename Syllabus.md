@@ -1,9 +1,11 @@
-# RoboJackets Software Training - Fall 2024
+# RoboJackets Software Training - Fall 2025
 
 The RoboJackets software training program is designed to prepare you to work on software for the RoboJackets competitive teams. This program offers practical experience writing code using C++ and ROS. It also covers some of the fundamental concepts of robotics used by all of our teams.
 
 ## Trainers
-- Mukilan Karthikeyan (Software Core Chair)
+- Mukilan Karthikeyan
+- Justin Gardiner
+- Cipriano Dorbessan
 
 
 ## Meeting Schedules
@@ -12,17 +14,17 @@ All new software members will attend two meetings each week. One meeting will be
 
 For more information about team meeting schedules and locations, check with each team's leadership.
 
-### New Member Team Meetings
-RoboWrestling | RoboRacing | RoboNav | RoboCup
---- | --- | --- | ---
-Thursdays, 7:00 - 9:00pm | Sunday, 4:00 - 7:00pm<br>Mondays, 7:00 - 9:30pm | Sundays, 4:00 - 7:00pm | Sundays, 7:00 - 9:30pm
+### [New Member Team Meetings](https://robojackets.org/teams/)
+RoboWrestling | RoboRacing | RoboNav | RoboCup | Battle Bots 
+--- | --- | --- | --- | ---
+Sunday, 1:00 - 4:00pm | Monday, 7:00 - 9:30pm<br>Thursday, 7:00 - 8:30pm | Sundays, 4:00 - 7:00pm | Sundays, 7:00 - 10:00pm | refer to website
 
 
 ### General Software Training Meetings
-Modays | Fridays
+Modays | Thursdays
 --- | --- 
-5:00 - 6:00pm | 5:00 - 6:00pm 
-MoSE G011 | MoSE G011
+6:30 - 8:00pm | 6:30 - 8:00pm 
+MoSE G021 | MoSE G021
 
 
 ## Resources
