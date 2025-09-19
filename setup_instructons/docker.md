@@ -93,7 +93,7 @@ Our installation script will:
 1. Run the script
 
    ```bash
-   bash setup.sh
+   bash ./setup.sh
    ```
 
 
@@ -133,11 +133,20 @@ sudo apt update
 sudo apt upgrade
 ```
 
+If you have a Nvidia GPU you an install the following if you want any accelerations:
+```bash
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg && \
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list && \
+sudo apt-get update
+```
+
 ## Software Training Support Library Download
 
-> **_NOTE_** bash script should have installed stsl and software training old, if you can not find the directory then install them manually/ move stsl into `/training_ws/src`
+> **_NOTE_** bash script should have installed stsl and software training old, if you can not find the directory then install them manually/ move stsl into `./training_ws/src`
 ```bash
-cd /training_ws/src
+cd ./training_ws/src
 ```
 ```bash
 git clone https://github.com/RoboJackets/stsl.git
@@ -146,7 +155,7 @@ git clone https://github.com/RoboJackets/stsl.git
 
 ## Install ROS Dependencies
 ```bash
-cd /training_ws
+cd ./training_ws
 rosdep update && rosdep install --from-paths src --ignore-src -r -y
 ```
 
@@ -154,7 +163,7 @@ rosdep update && rosdep install --from-paths src --ignore-src -r -y
 ## Colcon Build
 1. Navigate to training_ws
     ```bash
-    cd /training_ws
+    cd ./training_ws
     ```
 
 1. Run Colcon
@@ -162,14 +171,15 @@ rosdep update && rosdep install --from-paths src --ignore-src -r -y
     colcon build
     ```
 > **_NOTE_** if this is failing:
-> 1. check that `stsl` exists in the directory `/training_ws/src` 
+> 1. check that `stsl` exists in the directory `./training_ws/src`
+> 1. make sure you only have one version of stsl within your `rj_trianing_container`
 > 1. run `source `/opt/ros/humble/setup.bash`
 > 1. make sure the rosdep command ran sucessfully
 > 1. make sure you have enough RAM available
 
 1. source the result for future projects
     ```bash
-    source install/setup.bash
+    source ./install/setup.bash
     ```
 
 # You've set up your enviornemnt. Congratulations! 
