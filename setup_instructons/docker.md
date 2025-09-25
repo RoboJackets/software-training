@@ -47,11 +47,6 @@ Search for and install the following extensions in VS Code
 
 [Install Git using the instructions here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-1. clone this repo
-    ```bash
-        git clone https://github.com/RoboJackets/software-training.git
-    ```
-
 ## 4. Create directory to mount container
 
 The docker container is essentially a self-contained instance of Ubuntu 22.04, with access to any files in the directory you mount it in. We do this so the container can see the repositories you clone locally, that way both local development and containerized testing can be done seamlessly. 
